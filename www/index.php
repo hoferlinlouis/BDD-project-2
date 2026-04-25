@@ -14,5 +14,13 @@
         <li><a href="search_location.php">Search for a location</a></li>
     </ul>
 
+    <ul>
+        <a href="cd_dashboard.php">CD dashboard</a>
+    </ul>
+
+    <ul>
+        <a href="manage_genre_taxonomy.php">Genre taxonomy manager</a>
+    </ul>
+
 </body>
 </html>
