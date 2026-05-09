@@ -35,7 +35,7 @@ try {
 <head><meta charset="UTF-8"><title>CD Availability Dashboard</title></head>
 <body>
     <a href="index.php">← Back to Home</a>
-    <h1>CD Dashboard</h1>
+    <h1>CD Availability Dashboard</h1>
 
     <form method="post">
         Sort by: 

@@ -15,7 +15,7 @@
         <li><a href="gestion_cd.php">CD manager</a></li>
     
 
-        <li><a href="cd_dashboard.php">CD dashboard</a></li>
+        <li><a href="cd_availability_dashboard.php">CD availability dashboard</a></li>
         <li><a href="event_board.php">Event dashboard</a></li>
     
         <li><a href="manage_genre_taxonomy.php">Genre taxonomy manager</a></li>
