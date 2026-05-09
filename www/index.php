@@ -12,14 +12,13 @@
         <li><a href="search_client.php">Search for a client</a></li>
         <li><a href="search_event.php">Search for an event</a></li>
         <li><a href="search_location.php">Search for a location</a></li>
-    </ul>
+        <li><a href="gestion_cd.php">CD manager</a></li>
+    
 
-    <ul>
-        <a href="cd_dashboard.php">CD dashboard</a>
-    </ul>
-
-    <ul>
-        <a href="manage_genre_taxonomy.php">Genre taxonomy manager</a>
+        <li><a href="cd_dashboard.php">CD dashboard</a></li>
+        <li><a href="event_board.php">Event dashboard</a></li>
+    
+        <li><a href="manage_genre_taxonomy.php">Genre taxonomy manager</a></li>
     </ul>
 
 </body>
