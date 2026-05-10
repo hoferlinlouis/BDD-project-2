@@ -75,7 +75,7 @@ if ($selected_cd) {
 
     <div style="background: #f4f4f4; padding: 15px;">
         <h3>Select a CD</h3>
-        <form method="get" action="gestion_cd.php">
+        <form method="get" action="cd_management.php">
             <select name="cd_id" onchange="this.form.submit()">
                 <option value="">-- Choose a CD --</option>
                 <?php foreach ($cds as $cd): ?>
@@ -89,7 +89,7 @@ if ($selected_cd) {
 
     <?php if ($selected_cd): ?>
         <h2>Manage Songs</h2>
-        <form method="post" action="gestion_cd.php?cd_id=<?= $selected_cd ?>">
+        <form method="post" action="cd_management.php?cd_id=<?= $selected_cd ?>">
             <input type="hidden" name="cd_id" value="<?= $selected_cd ?>">
             <p>
                 Track number:
@@ -126,7 +126,7 @@ if ($selected_cd) {
                 </tr>
                 <?php foreach ($songs as $song): ?>
                     <tr>
-                        <form method="post" action="gestion_cd.php?cd_id=<?= $selected_cd ?>">
+                        <form method="post" action="cd_management.php?cd_id=<?= $selected_cd ?>">
                             <input type="hidden" name="cd_id" value="<?= $selected_cd ?>">
                             <input type="hidden" name="track_number" value="<?= $song['TRACK_NUMBER'] ?>">
                             <td><?= htmlspecialchars($song['TRACK_NUMBER']) ?></td>
