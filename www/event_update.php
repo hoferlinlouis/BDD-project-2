@@ -139,12 +139,25 @@ if (isset($_POST['action']) && $_POST['action'] === 'select' && !empty($_POST['e
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>08 - Event Update</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Event Update</title>
+    <style>
+        body { margin: 20px; }
+        .section { background: #f9f9f9; padding: 15px; margin: 15px 0; border: 1px solid #ddd; }
+        .form-group { margin: 12px 0; }
+        label { display: block; font-weight: bold; margin-bottom: 4px; }
+        input, select, textarea { padding: 6px; width: 100%; max-width: 520px; box-sizing: border-box; }
+        textarea { height: 80px; }
+        button { padding: 8px 14px; margin-top: 8px; }
+        .message { padding: 10px; margin: 12px 0; border: 1px solid #ccc; }
+        .success { background: #e6ffed; }
+        .error, .error-box { background: #ffe6e6; }
+        .info-box { background: #f4f4f4; padding: 10px; margin: 12px 0; border: 1px solid #ddd; }
+        .required { color: red; }
+    </style>
 </head>
 <body>
-    <a class="back-link" href="index.php">Back to Home</a>
-    <h1>08 - Event Update</h1>
+    <a href="index.php">Back to Home</a>
+    <h1>Event Update</h1>
     <p>Select and update information for future events.</p>
 
     <?php if ($message): ?>

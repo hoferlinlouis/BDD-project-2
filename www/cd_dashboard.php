@@ -66,13 +66,20 @@ try {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>05 - CD Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CD Dashboard</title>
+    <style>
+        body { margin: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background: #eee; }
+        .muted { color: #777; }
+        .center { text-align: center; }
+    </style>
 </head>
 <body>
-    <a class="back-link" href="index.php">Back to Home</a>
-    <h1>05 - CD Dashboard</h1>
-    <p class="note">Statistics for each CD: song durations, playlist appearances, and associated genres.</p>
+    <a href="index.php">Back to Home</a>
+    <h1>CD Dashboard</h1>
+    <p>Statistics for each CD: song durations, playlist appearances, and associated genres.</p>
 
     <table>
         <thead>

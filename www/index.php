@@ -13,11 +13,10 @@
         <li><a href="search_event.php">Search for an event</a></li>
         <li><a href="search_location.php">Search for a location</a></li>
         <li><a href="gestion_cd.php">CD manager</a></li>
-    
-
+        <li><a href="cd_dashboard.php">CD dashboard</a></li>
         <li><a href="cd_availability_dashboard.php">CD availability dashboard</a></li>
         <li><a href="event_board.php">Event dashboard</a></li>
-    
+        <li><a href="event_update.php">Event update</a></li>
         <li><a href="manage_genre_taxonomy.php">Genre taxonomy manager</a></li>
     </ul>
 
