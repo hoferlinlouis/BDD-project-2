@@ -63,11 +63,11 @@ if ($selected_cd) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CD Manager</title>
+    <title>CD Management</title>
 </head>
 <body>
     <a href="index.php">Back to Home</a>
-    <h1>CD Manager</h1>
+    <h1>CD Management</h1>
 
     <?php if ($message): ?>
         <p><?= htmlspecialchars($message) ?></p>
