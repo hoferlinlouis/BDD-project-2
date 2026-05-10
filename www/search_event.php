@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<?php $bdd = new PDO('mysql:host=db;dbname=group10;charset=utf8mb4', 'group10', 'secret'); ?>
+<?php
+$bdd = new PDO('mysql:host=db;dbname=group10;charset=utf8mb4', 'group10', 'secret', [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+]);
+?>
 <html lang="en">
 <head><meta charset="UTF-8"><title>Event Search</title></head>
 <body>
@@ -33,7 +37,13 @@
         if ($rows) {
             echo "<table border='1'><tr><th>ID</th><th>Name</th><th>Type</th><th>Theme</th><th>Client</th></tr>";
             foreach ($rows as $row) {
-                echo "<tr><td>".$row['ID']."</td><td>".$row['NAME']."</td><td>".$row['TYPE']."</td><td>".$row['THEME']."</td><td>".$row['CLIENT']."</td></tr>";
+                echo "<tr>";
+                echo "<td>".htmlspecialchars($row['ID'])."</td>";
+                echo "<td>".htmlspecialchars($row['NAME'])."</td>";
+                echo "<td>".htmlspecialchars($row['TYPE'])."</td>";
+                echo "<td>".htmlspecialchars($row['THEME'] ?? '')."</td>";
+                echo "<td>".htmlspecialchars($row['CLIENT'] ?? '')."</td>";
+                echo "</tr>";
             }
             echo "</table>";
         } else { echo "No results found."; }

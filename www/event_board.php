@@ -1,5 +1,4 @@
 <?php
-// connection
 try {
     $bdd = new PDO('mysql:host=db;dbname=group10;charset=utf8mb4', 'group10', 'secret', [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
@@ -12,8 +11,8 @@ $query = "
     SELECT 
         E.NAME, 
         E.DATE, 
-        COUNT(R.NAME) as nbr_demands,
-        SUM(R.PRICE) as total_demand_value
+        COUNT(R.NAME) as request_count,
+        COALESCE(SUM(R.PRICE), 0) as total_request_price
     FROM EVENT E
     LEFT JOIN REQUEST R ON E.ID = R.EVENT_ID
     GROUP BY E.ID
@@ -54,35 +53,32 @@ $today = date('Y-m-d');
                 <th>Date</th>
                 <th>Event Name</th>
                 <th>Status</th>
-                <th>Demands</th>
+                <th>Requests</th>
                 <th>Total Cost (EUR)</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($events as $event): 
-                // statut
                 if ($event['DATE'] < $today) {
-                    $status = "PASSÉ";
+                    $status = "PAST";
                     $class = "status-past";
                 } elseif ($event['DATE'] == $today) {
-                    $status = "AUJOURD'HUI";
+                    $status = "TODAY";
                     $class = "status-today";
                 } else {
-                    $status = "FUTUR";
+                    $status = "FUTURE";
                     $class = "status-future";
                 }
 
-                // coût
                 $fixed_fee = 1500;
-                $commission = ($event['total_demand_value'] ?? 0) * 0.05;
-                // 1500€ + 5% of demande
+                $commission = $event['total_request_price'] * 0.05;
                 $total_cost = $fixed_fee + $commission;
             ?>
             <tr>
                 <td><?= htmlspecialchars($event['DATE']) ?></td>
                 <td><?= htmlspecialchars($event['NAME']) ?></td>
                 <td class="<?= $class ?>"><?= $status ?></td>
-                <td><?= htmlspecialchars($event['nbr_demands']) ?></td>
+                <td><?= htmlspecialchars($event['request_count']) ?></td>
                 <td><?= number_format($total_cost, 2, '.', ' ') ?> €</td>
             </tr>
             <?php endforeach; ?>

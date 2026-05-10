@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<?php $bdd = new PDO('mysql:host=db;dbname=group10;charset=utf8mb4', 'group10', 'secret'); ?>
+<?php
+$bdd = new PDO('mysql:host=db;dbname=group10;charset=utf8mb4', 'group10', 'secret', [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+]);
+?>
 <html lang="en">
 <head><meta charset="UTF-8"><title>Client Search</title></head>
 <body>
@@ -31,7 +35,13 @@
         if ($rows) {
             echo "<table border='1'><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th></tr>";
             foreach ($rows as $r) {
-                echo "<tr><td>".$r['CLIENT_NUMBER']."</td><td>".$r['FIRST_NAME']."</td><td>".$r['LAST_NAME']."</td><td>".$r['EMAIL_ADDRESS']."</td><td>".$r['PHONE_NUMBER']."</td></tr>";
+                echo "<tr>";
+                echo "<td>".htmlspecialchars($r['CLIENT_NUMBER'])."</td>";
+                echo "<td>".htmlspecialchars($r['FIRST_NAME'])."</td>";
+                echo "<td>".htmlspecialchars($r['LAST_NAME'])."</td>";
+                echo "<td>".htmlspecialchars($r['EMAIL_ADDRESS'])."</td>";
+                echo "<td>".htmlspecialchars($r['PHONE_NUMBER'])."</td>";
+                echo "</tr>";
             }
             echo "</table>";
         } else echo "No results found.";

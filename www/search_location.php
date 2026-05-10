@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<?php $bdd = new PDO('mysql:host=db;dbname=group10;charset=utf8mb4', 'group10', 'secret'); ?>
+<?php
+$bdd = new PDO('mysql:host=db;dbname=group10;charset=utf8mb4', 'group10', 'secret', [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+]);
+?>
 <html lang="en">
 <head><meta charset="UTF-8"><title>Location Search</title></head>
 <body>
@@ -31,7 +35,13 @@
         if ($rows) {
             echo "<table border='1'><tr><th>ID</th><th>Street</th><th>City</th><th>PC</th><th>Country</th></tr>";
             foreach ($rows as $row) {
-                echo "<tr><td>".$row['ID']."</td><td>".$row['STREET']."</td><td>".$row['CITY']."</td><td>".$row['POSTAL_CODE']."</td><td>".$row['COUNTRY']."</td></tr>";
+                echo "<tr>";
+                echo "<td>".htmlspecialchars($row['ID'])."</td>";
+                echo "<td>".htmlspecialchars($row['STREET'])."</td>";
+                echo "<td>".htmlspecialchars($row['CITY'])."</td>";
+                echo "<td>".htmlspecialchars($row['POSTAL_CODE'])."</td>";
+                echo "<td>".htmlspecialchars($row['COUNTRY'])."</td>";
+                echo "</tr>";
             }
             echo "</table>";
         } else { echo "No results found."; }
